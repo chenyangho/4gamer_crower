@@ -10,22 +10,73 @@ window.title('My Window')
 window.geometry('600x400')  # 這裡的乘是小x
 
 # 第4步，在圖形介面上建立一個標籤label用以顯示並放置
-l = tk.Label(window, bg='yellow', width=20, text='empty')
+l = tk.Label(window, bg='sky blue', width=100, height=2, text='歡迎！請勾選想要的新聞＆輸入終止日期')
 l.pack()
 
-frame = tk.Frame(window, bg="black")
+frame = tk.Frame(window)
 frame.pack(side=tk.LEFT, fill=tk.BOTH)
 
 # 第6步，定義觸發函式功能
+print_array = []
+check_array = [1, 1, 1, 1, 1, 1, 1, 1]
 def print_selection():
-    if (var1.get() == 1) & (var2.get() == 0):     # 如果選中第一個選項，未選中第二個選項
-        l.config(text='I love only Python ')
-    elif (var1.get() == 0) & (var2.get() == 1):   # 如果選中第二個選項，未選中第一個選項
-        l.config(text='I love only C++')
-    elif (var1.get() == 0) & (var2.get() == 0):   # 如果兩個選項都未選中
-        l.config(text='I do not love either')
-    else:
-        l.config(text='I love both')             # 如果兩個選項都選中
+	if var1.get() == 1:
+		if check_array[0] == 1:
+			print_array.append("0")
+			check_array[0] = 0
+		else:
+			print_array.remove("0")
+			check_array[0] = 1
+	elif var2.get() == 1:
+		if check_array[1] == 1:
+			print_array.append("1")
+			check_array[1] = 0
+		else:
+			print_array.remove("1")
+			check_array[1] = 1
+	elif var3.get() == 1:
+		if check_array[2] == 1:
+			print_array.append("2")
+			check_array[2] = 0
+		else:
+			print_array.remove("2")
+			check_array[2] = 1
+	elif var4.get() == 1:
+		if check_array[3] == 1:
+			print_array.append("3")
+			check_array[3] = 0
+		else:
+			print_array.remove("3")
+			check_array[3] = 1
+	elif var5.get() == 1:
+		if check_array[4] == 1:
+			print_array.append("4")
+			check_array[4] = 0
+		else:
+			print_array.remove("4")
+			check_array[4] = 1
+	elif var6.get() == 1:
+		if check_array[5] == 1:
+			print_array.append("5")
+			check_array[5] = 0
+		else:
+			print_array.remove("5")
+			check_array[5] = 1
+	elif var7.get() == 1:
+		if check_array[6] == 1:
+			print_array.append("6")
+			check_array[6] = 0
+		else:
+			print_array.remove("6")
+			check_array[6] = 1
+	elif var8.get() == 1:	
+		if check_array[7] == 1:
+			print_array.append("7")
+			check_array[7] = 0
+		else:
+			print_array.remove("7")
+			check_array[7] = 1
+	l.config(text=print_array)
 
 # 第5步，定義兩個Checkbutton選項並放置
 var1 = tk.IntVar()  # 定義var1和var2整型變數用來存放選擇行為返回值
